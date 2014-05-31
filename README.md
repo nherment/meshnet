@@ -15,18 +15,18 @@ Meshnet provides:
 - p2p inter-node communications
 
 
-var MeshNet = require('meshnet')
+    var MeshNet = require('meshnet')
 
 
-var mesh = new MeshNet()
+    var mesh = new MeshNet()
 
-mesh.start({
-  cluster: {
-    host: <remote_host>,
-    port: <remote_port>
-  }
-})
+    mesh.start({
+      cluster: {
+        host: <remote_host>,
+        port: <remote_port>
+      }
+    })
 
-mesh.on('online', function(node) {
+    mesh.on('online', function(node) {
 
-})
+    })
