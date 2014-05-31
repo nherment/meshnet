@@ -1,0 +1,35 @@
+{
+  "name": "meshnet",
+  "version": "0.0.1",
+  "description": "organize your nodes in a mesh network and provide p2p communication capabilities",
+  "main": "lib/Termite.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nherment/termite.git"
+  },
+  "keywords": [
+    "network",
+    "p2p",
+    "cluster",
+    "mesh"
+  ],
+  "author": "Nicolas Herment",
+  "license": "Public domain",
+  "bugs": {
+    "url": "https://github.com/nherment/termite/issues"
+  },
+  "homepage": "https://github.com/nherment/termite",
+  "dependencies": {
+    "portscanner": "0.2.3",
+    "get-port": "^0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "1.20.0"
+  }
+}
