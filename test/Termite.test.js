@@ -7,7 +7,6 @@ describe('Termite', function() {
   it('2 nodes cluster', function(done) {
     var termite1 = new Termite()
 
-
     var discoverCount = 0
     function flagDiscovered() {
       discoverCount++
@@ -15,7 +14,6 @@ describe('Termite', function() {
         done()
       }
     }
-
 
     termite1.start(function(err, port) {
 
