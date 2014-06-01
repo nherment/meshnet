@@ -15,7 +15,7 @@ describe('Termite', function() {
       }
     }
 
-    termite1.start(function(err, port) {
+    termite1.join(function(err, port) {
 
       if(err) return done(err)
 
@@ -41,7 +41,7 @@ describe('Termite', function() {
         flagDiscovered()
       })
 
-      termite2.start(function(err, port) {
+      termite2.join(function(err, port) {
         if(err) return done(err)
         portTermite2 = port
       })
@@ -66,11 +66,11 @@ describe('Termite', function() {
       }
     }
 
-    termite1.start(function(err, port) {
+    termite1.join(function(err, port) {
 
       if(err) return done(err)
 
-      //console.log('t1 started', port)
+      //console.log('t1 joined', port)
 
       var portTermite1 = port
       var portTermite2
@@ -117,15 +117,15 @@ describe('Termite', function() {
         flagDiscovered()
       })
 
-      termite2.start(function(err, port) {
+      termite2.join(function(err, port) {
         if(err) return done(err)
-        //console.log('t2 started', port)
+        //console.log('t2 joined', port)
         portTermite2 = port
       })
 
-      termite3.start(function(err, port) {
+      termite3.join(function(err, port) {
         if(err) return done(err)
-        //console.log('t3 started', port)
+        //console.log('t3 joined', port)
         portTermite3 = port
       })
     })
