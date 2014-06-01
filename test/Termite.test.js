@@ -4,49 +4,49 @@ var Termite = require('../')
 
 describe('Termite', function() {
 
-//   it('2 nodes cluster', function(done) {
-//     var termite1 = new Termite()
+  it('2 nodes cluster', function(done) {
+    var termite1 = new Termite()
 
-//     var discoverCount = 0
-//     function flagDiscovered() {
-//       discoverCount++
-//       if(discoverCount == 2) {
-//         done()
-//       }
-//     }
+    var discoverCount = 0
+    function flagDiscovered() {
+      discoverCount++
+      if(discoverCount == 2) {
+        done()
+      }
+    }
 
-//     termite1.start(function(err, port) {
+    termite1.start(function(err, port) {
 
-//       if(err) return done(err)
+      if(err) return done(err)
 
-//       var portTermite1 = port
-//       var portTermite2
+      var portTermite1 = port
+      var portTermite2
 
-//       var termite2 = new Termite({
-//         cluster: {
-//           host: 'localhost',
-//           port: portTermite1
-//         }
-//       })
+      var termite2 = new Termite({
+        cluster: {
+          host: 'localhost',
+          port: portTermite1
+        }
+      })
 
-//       termite2.on('online', function(node) {
-//         assert.ok(node)
-//         assert.equal(node.port(), portTermite1, '[termite2] termite1 node has the wrong port')
-//         flagDiscovered()
-//       })
+      termite2.on('online', function(node) {
+        assert.ok(node)
+        assert.equal(node.port(), portTermite1, '[termite2] termite1 node has the wrong port')
+        flagDiscovered()
+      })
 
-//       termite1.on('online', function(node, port) {
-//         assert.ok(node)
-//         assert.equal(node.port(), portTermite2, '[termite1] termite2 node has the wrong port')
-//         flagDiscovered()
-//       })
+      termite1.on('online', function(node, port) {
+        assert.ok(node)
+        assert.equal(node.port(), portTermite2, '[termite1] termite2 node has the wrong port')
+        flagDiscovered()
+      })
 
-//       termite2.start(function(err, port) {
-//         if(err) return done(err)
-//         portTermite2 = port
-//       })
-//     })
-//   })
+      termite2.start(function(err, port) {
+        if(err) return done(err)
+        portTermite2 = port
+      })
+    })
+  })
 
   it('3 nodes cluster', function(done) {
     var termite1 = new Termite()
@@ -58,9 +58,9 @@ describe('Termite', function() {
       discoverCount++
       if(discoverCount == 6) {
 
-        console.log('t1('+termite1.port()+'):', JSON.stringify(termite1.peers()))
-        console.log('t2('+termite2.port()+'):', JSON.stringify(termite2.peers()))
-        console.log('t3('+termite3.port()+'):', JSON.stringify(termite3.peers()))
+        //console.log('t1('+termite1.port()+'):', JSON.stringify(termite1.peers()))
+        //console.log('t2('+termite2.port()+'):', JSON.stringify(termite2.peers()))
+        //console.log('t3('+termite3.port()+'):', JSON.stringify(termite3.peers()))
 
         done()
       }
@@ -70,7 +70,7 @@ describe('Termite', function() {
 
       if(err) return done(err)
 
-      console.log('t1 started', port)
+      //console.log('t1 started', port)
 
       var portTermite1 = port
       var portTermite2
@@ -119,13 +119,13 @@ describe('Termite', function() {
 
       termite2.start(function(err, port) {
         if(err) return done(err)
-        console.log('t2 started', port)
+        //console.log('t2 started', port)
         portTermite2 = port
       })
 
       termite3.start(function(err, port) {
         if(err) return done(err)
-        console.log('t3 started', port)
+        //console.log('t3 started', port)
         portTermite3 = port
       })
     })
