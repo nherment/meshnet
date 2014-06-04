@@ -1,11 +1,11 @@
 
-Meshnet
+MeshNet
 =======
 
 MeshNet is a node.js library to structure your node processes in a mesh network.
 It is a foundation on which you can develop highly scalable architectures.
 
-Meshnet provides:
+MeshNet provides:
 
 - self organizing nodes
 - multi master mesh
@@ -50,7 +50,10 @@ Functions
 channels
 --------
 
-meshnet channels are the core of the mesh network and cover multiple functionalities.
-Depending on how it is configured, a channel can be used as a pub-sub or for queue execution depending on how the channel is configured.
+Channels are the core of the mesh network and cover multiple functionalities.
+Depending on how it is configured, a channel can be used as
+
+- a pub-sub
+- a queue, persisted (resilient to server crash) or not
 
 Nodes subscribe to a set of channels.
