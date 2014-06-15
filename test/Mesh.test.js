@@ -1,16 +1,16 @@
 
 var assert = require('assert')
-var Termite = require('../')
+var Mesh = require('../')
 
 describe('Mesh', function() {
 
-  var termite1 = new Termite()
-  var termite2
-  var termite3
+  var node1 = new Mesh()
+  var node2
+  var node3
 
-  var portTermite1
-  var portTermite2
-  var portTermite3
+  var portnode1
+  var portnode2
+  var portnode3
 
   before(function(done) {
 
@@ -22,58 +22,76 @@ describe('Mesh', function() {
       }
     }
 
-    termite1.join(function(err, port) {
+    node1.join(function(err, port) {
 
       if(err) return done(err)
 
       //console.log('t1 joined', port)
 
-      portTermite1 = port
-      portTermite2
-      portTermite3
+      portnode1 = port
+      portnode2
+      portnode3
 
-      termite2 = new Termite({
+      node2 = new Mesh({
         cluster: {
           host: 'localhost',
-          port: portTermite1
+          port: portnode1
         }
       })
 
-      termite3 = new Termite({
+      node3 = new Mesh({
         cluster: {
           host: 'localhost',
-          port: portTermite1
+          port: portnode1
         }
       })
 
-      termite1.on('online', function(node) {
+      node1.on('online', function(node) {
         flagDiscovered()
       })
 
-      termite2.on('online', function(node) {
+      node2.on('online', function(node) {
         flagDiscovered()
       })
 
-      termite3.on('online', function(node) {
+      node3.on('online', function(node) {
         flagDiscovered()
       })
 
-      termite2.join(function(err, port) {
+      node2.join(function(err, port) {
         if(err) return done(err)
         //console.log('t2 joined', port)
-        portTermite2 = port
+        portnode2 = port
       })
 
-      termite3.join(function(err, port) {
+      node3.join(function(err, port) {
         if(err) return done(err)
         //console.log('t3 joined', port)
-        portTermite3 = port
+        portnode3 = port
       })
     })
   })
 
-  it('Configuration sharing', function(done) {
+  it('attach', function(done) {
+    node1.attach('channel1', function(err) {
 
+      if(err) return done(err)
+
+      node2.attch('channel1', function(err) {
+
+        if(err) return done(err)
+
+
+        node2.attch('channel1', function(err) {
+
+          if(err) return done(err)
+          else done()
+
+        })
+
+      })
+
+    })
   })
 
 })

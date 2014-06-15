@@ -2,7 +2,7 @@
   "name": "meshnet",
   "version": "0.0.1",
   "description": "organize your nodes in a mesh network and provide p2p communication capabilities",
-  "main": "lib/Termite.js",
+  "main": "lib/Mesh.js",
   "directories": {
     "test": "test"
   },
