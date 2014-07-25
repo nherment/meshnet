@@ -77,18 +77,18 @@ Protocol
 --------
 
 The protocol works as follow:
+
 1. node1 thinks that node2 is down (criteria TBD)
 2. node1 asks node3 (picked randomly amongst his connected nodes, excluding node2)
 3. node3 checks if node2 is down, report its result to node1
-    a. if node1 does not get an answer from node3
-        1. if node1 is out of peers to ask, node1 considers himself down.
-             It keeps trying (exponential backoff) to reconnect to all nodes, round robin 1 at a time.
-        2. node1 asks node4 (picked randomly amongst his connected nodes, excluding node2 and node3)
-    b. if node3 told node1 that node2 is down
-        1. If the number of peers seeing node2 down is greater than or equal to ```consensus_treshold```, node1 round robin to all peers and send node2 down status.
-        2. Else goto 2
-    c. if node3 told node1 that node2 is up
-        1. If the number of peers seeing node2 up is greater than ```consensus_treshold```, node1 notifies all nodes that it is going down and resets.
+  1. if node1 does not get an answer from node3
+    1. if node1 is out of peers to ask, node1 considers himself down. It keeps trying (exponential backoff) to reconnect to all nodes, round robin 1 at a time.
+    2. node1 asks node4 (picked randomly amongst his connected nodes, excluding node2 and node3)
+  2. if node3 told node1 that node2 is down
+    1. If the number of peers seeing node2 down is greater than or equal to ```consensus_treshold```, node1 round robin to all peers and send node2 down status.
+    2. Else goto 2
+  3. if node3 told node1 that node2 is up
+    1. If the number of peers seeing node2 up is greater than ```consensus_treshold```, node1 notifies all nodes that it is going down and resets.
 
 
 Note: if a node receive a takedown notice, it must disconnect from all nodes.
