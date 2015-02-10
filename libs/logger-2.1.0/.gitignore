@@ -1,0 +1,4 @@
+*.dylib*
+*.a
+*.o
+test.dSYM
