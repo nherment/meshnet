@@ -19,3 +19,4 @@ file(GLOB_RECURSE Libs_SOURCES
 add_executable(Meshnet ${Meshnet_SOURCES} ${Meshnet_HEADERS} ${Libs_SOURCES} ${Libs_HEADERS} )
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/libs/logger-2.1.0 )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/libs/linkedlist )
